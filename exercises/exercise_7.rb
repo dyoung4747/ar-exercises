@@ -10,3 +10,15 @@ puts "Exercise 7"
 puts "----------"
 
 # Your code goes here ...
+puts "Please insert a store name:"
+
+print "> "
+@choice = $stdin.gets.chomp
+
+@store = Store.create(name: "#{@choice}", annual_revenue: 918274)
+
+if @store.errors.any?
+  @store.errors.each { |attribute, message| puts "#{attribute} #{message}" }
+end
+
+puts Store.all.count
